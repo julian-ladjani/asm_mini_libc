@@ -10,6 +10,9 @@ SRCS =	src/strchr.asm	\
 		src/strlen.asm	\
 		src/rindex.asm	\
 		src/memset.asm	\
+		src/strcmp.asm	\
+		src/strncmp.asm	\
+		src/strcasecmp.asm \
 
 OBJDIR = obj/
 
