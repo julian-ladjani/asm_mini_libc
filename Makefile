@@ -14,6 +14,7 @@ SRCS =	src/strchr.asm		\
 		src/strncmp.asm		\
 		src/strcasecmp.asm	\
 		src/strspn.asm		\
+		src/strpbrk.asm		\
 
 OBJDIR = obj/
 

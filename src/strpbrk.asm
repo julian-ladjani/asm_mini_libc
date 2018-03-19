@@ -1,7 +1,7 @@
 section .text
-global strspn:function
+global strpbrk:function
 
-strspn:
+strpbrk:
         enter	0, 0
         xor	rcx, rcx
         xor	rdx, rdx
@@ -13,28 +13,32 @@ strspn:
         cmp	rsi, 0
         jz	end
         xor	r10, r10
-        mov	r8b, BYTE [rdi + r10]
+        mov	r8b, BYTE [rdi]
 loop:
 	mov	r9b, BYTE [rsi + rcx]
 	cmp	r8b, r9b
-	jz	set_r8b
+	jz	found
 	cmp	r9b, 0
-        jz	end_diff
+        jz	set_r8b
         inc	rcx
         jmp	loop
 set_r8b:
 	mov	r8b, BYTE [rdi + r10]
 	xor	rcx, rcx
+	inc	r10
 	cmp	r8b, 0
 	jz	end
-	inc	r10
 	jmp	loop
-end_diff:
+found:
 	cmp	r10, 0
-	jz	end
+	jz	ret_r10
 	sub	r10, 1
+	add	rdi, r10
+        mov	rax, rdi
+	jmp	end
+ret_r10:
+	mov	rax, rdi
 	jmp	end
 end:
-	mov	rax, r10
 	leave
 	ret
