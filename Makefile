@@ -6,13 +6,14 @@ RM = rm -f
 NAME = libasm.so
 TESTNAME = test_exec
 
-SRCS =	src/strchr.asm	\
-		src/strlen.asm	\
-		src/rindex.asm	\
-		src/memset.asm	\
-		src/strcmp.asm	\
-		src/strncmp.asm	\
-		src/strcasecmp.asm \
+SRCS =	src/strchr.asm		\
+		src/strlen.asm		\
+		src/rindex.asm		\
+		src/memset.asm		\
+		src/strcmp.asm		\
+		src/strncmp.asm		\
+		src/strcasecmp.asm	\
+		src/strspn.asm		\
 
 OBJDIR = obj/
 
