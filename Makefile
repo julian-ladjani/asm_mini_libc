@@ -9,6 +9,7 @@ TESTNAME = test_exec
 SRCS =	src/strchr.asm	\
 		src/strlen.asm	\
 		src/rindex.asm	\
+		src/memset.asm	\
 
 OBJDIR = obj/
 
