@@ -1,0 +1,8 @@
+cmake*
+CMake*
+*.c
+src/*.c
+obj
+*.so
+test_exec
+.idea
