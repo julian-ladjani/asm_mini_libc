@@ -4,6 +4,7 @@ global memmove:function
 memmove:
 	enter	0,0
 	xor	rcx, rcx
+	xor	r8, r8
 	cmp	rdi, 0
 	jz	end
 	cmp	rsi, 0
