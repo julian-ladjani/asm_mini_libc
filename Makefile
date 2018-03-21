@@ -17,6 +17,7 @@ SRCS =	src/strchr.asm		\
 		src/strpbrk.asm		\
 		src/strstr.asm		\
 		src/memcpy.asm		\
+		src/memmove.asm		\
 
 OBJDIR = obj/
 
