@@ -19,9 +19,17 @@ found:
 	add	rdi, rcx
 	mov	rax, rdi
 	cmp	BYTE [rdi + rcx], 0
-        jz	end
+        jz	end_check
 	mov	rcx, 1
         jmp	loop
+end_check:
+	cmp	sil, 0
+	jz	fix_end
+	jmp	end
+fix_end:
+	add	rdi, rcx
+        mov	rax, rdi
+        jmp	end
 end:
 	leave
 	ret
