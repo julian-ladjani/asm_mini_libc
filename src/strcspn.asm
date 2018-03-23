@@ -32,6 +32,8 @@ set_r8b:
 end_diff:
 	cmp	r10, 0
 	jz	end
+	cmp	r9b, 0
+	jz	end
 	sub	r10, 1
 	jmp	end
 end:
