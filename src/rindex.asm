@@ -6,30 +6,27 @@ rindex:
         xor	rcx, rcx
         xor	rdx, rdx
         xor	rax, rax
+        mov	r8, -1
         cmp	rdi, 0
-        jz	end
+        je	end_null
 loop:
 	cmp	BYTE [rdi + rcx], sil
-	jz	found
+	je	save_pos
 	cmp	BYTE [rdi + rcx], 0
-        jz	end_check
-        inc	rcx
-        jmp	loop
-found:
+	je	end_check
+	inc	rcx
+	jmp	loop
+save_pos:
+	mov	r8, rcx
+end_check:
+	cmp	r8, -1
+	je	end_null
+	jmp	end
+end_null:
+	leave
+	ret
+end:
 	add	rdi, rcx
 	mov	rax, rdi
-	cmp	BYTE [rdi + rcx], 0
-        jz	end
-	mov	rcx, 1
-        jmp	loop
-end_check:
-	cmp	sil, 0
-	jz	fix_end
-	jmp	end
-fix_end:
-	add	rdi, rcx
-        mov	rax, rdi
-        jmp	end
-end:
 	leave
 	ret
