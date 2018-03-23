@@ -18,6 +18,10 @@ loop:
 	jmp	loop
 save_pos:
 	mov	r8, rcx
+	cmp	BYTE [rdi + rcx], 0
+        je	end_check
+	inc	rcx
+	jmp	loop
 end_check:
 	cmp	r8, -1
 	je	end_null
@@ -26,7 +30,7 @@ end_null:
 	leave
 	ret
 end:
-	add	rdi, rcx
+	add	rdi, r8
 	mov	rax, rdi
 	leave
 	ret
