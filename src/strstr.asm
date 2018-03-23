@@ -13,6 +13,8 @@ strstr:
         jz	end_null
         cmp	rsi, 0
         jz	end_null
+        cmp	BYTE [rsi], 0
+        je	end_found
 loop:
 	mov	r8b, BYTE [rdi + rcx]
 	mov	r9b, BYTE [rsi]
