@@ -18,7 +18,10 @@ loop:
 found:
 	add	rdi, rcx
 	mov	rax, rdi
-        jmp	end
+	cmp	BYTE [rdi + rcx], 0
+        jz	end
+	mov	rcx, 1
+        jmp	loop
 end:
 	leave
 	ret
