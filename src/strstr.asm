@@ -16,10 +16,10 @@ strstr:
 loop:
 	mov	r8b, BYTE [rdi + rcx]
 	mov	r9b, BYTE [rsi]
+	cmp	r8b, r9b
+        jz	loop_equal
 	cmp	r8b, 0
 	jz	end_null
-	cmp	r8b, r9b
-	jz	loop_equal
 	inc	rcx
 	inc	rbx
 	jmp	loop
