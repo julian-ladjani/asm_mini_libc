@@ -12,14 +12,14 @@ loop:
 	cmp	BYTE [rdi + rcx], sil
 	jz	found
 	cmp	BYTE [rdi + rcx], 0
-        jz	end
+        jz	end_check
         inc	rcx
         jmp	loop
 found:
 	add	rdi, rcx
 	mov	rax, rdi
 	cmp	BYTE [rdi + rcx], 0
-        jz	end_check
+        jz	end
 	mov	rcx, 1
         jmp	loop
 end_check:
