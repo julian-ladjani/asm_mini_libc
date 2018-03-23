@@ -34,7 +34,7 @@ $(NAME): $(OBJS)
 	ld -shared -o $(NAME) $(OBJS)
 
 test-lib: re
-	gcc -O0 -fno-builtin -g main.c -Wl,-rpath . -lasm -o test_exec
+	gcc -O0 -fno-builtin -g main.c -Wl,-rpath . -L. -lasm -o test_exec
 
 clean:
 	$(RM) $(OBJS)
