@@ -6,3 +6,4 @@ obj
 *.so
 test_exec
 .idea
+test
